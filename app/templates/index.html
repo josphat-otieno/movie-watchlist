@@ -1,0 +1,51 @@
+
+
+    {% extends 'base.html' %}
+    {% import 'macros.html' as macro %}
+   
+      
+        <!-- popular movie section -->
+        <!-- <h3>Popular Movies</h3>
+        <ul>
+            {% for popular_movie in popular %}
+                <li>{{ popular_movie.title }}</li>
+            {% endfor %}
+        </ul>
+        <h3> Upcoming Movies </h3>
+        <ul>
+           {% for upcoming_movie in upcoming %}
+               <li>{{ upcoming_movie.title}}</li>
+           {% endfor %}
+       </ul> -->
+       <!-- Now showing movie -->
+       <!-- <h3>Now Showing</h3>
+        <ul>
+           {% for now_showing_movie in now_playing %}
+               <li>{{ now_showing_movie.title}}</li>
+           {% endfor %}
+       </ul> -->
+       <!-- styles block -->
+       {% block styles %} 
+       {{ super() }} 
+       <link rel="stylesheet" href="url_for('static', filename='css/index.css')">
+       {% endblock %}
+
+       <!-- usinng macros -->
+       <!-- using block content -->
+       {% block content %}
+       <h1>{{ message }}</h1>
+       <h3> Popular Movies</h3>
+       <ul>
+           {{ macro.displayMovieList(popular)}}
+       </ul><br>
+       <!-- Upcoming movie  -->
+       <h3> Upcoming Movies </h3>
+       <ul>
+           {{ macro.displayMovieList(upcoming)}}
+       </ul><br>
+       <!-- Now showing movie -->
+       <h3>Now Showing</h3>
+       <ul>
+           {{ macro.displayMovieList(now_playing)}}
+       </ul>
+       {% endblock %}
