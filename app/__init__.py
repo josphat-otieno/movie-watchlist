@@ -27,15 +27,17 @@ def create_app(config_name):
     # registering the blueprint
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    # registering auth blueprint 
+    from .auth import auth as auth_blueprint
+    app.register_blueprint(auth_blueprint, url_prefix='/authenticate')
+
      
     # stting configuratons
     from .request import configue_request
     configue_request(app)
   
-     # registering auth blueprint 
-    from .auth import auth as auth_blueprint
-    app.register_blueprint(auth_blueprint, url_prefix='/authenticate')
-
+    
     return  app
 
 
